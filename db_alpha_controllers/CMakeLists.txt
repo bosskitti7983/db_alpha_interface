@@ -73,6 +73,10 @@ include_directories(
   ${YAML_CPP_INCLUDE_DIRS}
 )
 
+add_executable(velocity_controller src/velocity_controller.cpp)
+add_dependencies(velocity_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(velocity_controller ${catkin_LIBRARIES} ${Eigen3_LIBRARIES} ${YAML_CPP_LIBRARIES})
+
 add_executable(torque_controller src/torque_controller.cpp)
 add_dependencies(torque_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(torque_controller ${catkin_LIBRARIES} ${Eigen3_LIBRARIES} ${YAML_CPP_LIBRARIES})
